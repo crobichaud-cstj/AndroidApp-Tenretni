@@ -1,4 +1,4 @@
-package ca.qc.cstj.tenretni.core
+package ca.qc.cstj.tptenretni.core
 
 object Constants {
 

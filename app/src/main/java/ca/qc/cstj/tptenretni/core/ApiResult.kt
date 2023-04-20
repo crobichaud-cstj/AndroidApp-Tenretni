@@ -1,4 +1,4 @@
-package ca.qc.cstj.tenretni.core
+package ca.qc.cstj.tptenretni.core
 
 sealed class ApiResult<out R> {
     data class Success<out R>(val data: R) : ApiResult<R>()

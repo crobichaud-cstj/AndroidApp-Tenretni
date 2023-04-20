@@ -1,4 +1,4 @@
-package ca.qc.cstj.tenretni.core
+package ca.qc.cstj.tptenretni.core
 
 import java.text.SimpleDateFormat
 import java.util.*
