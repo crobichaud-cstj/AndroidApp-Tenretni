@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tenretni</string>
+    <string name="title_home">Maison</string>
+    <string name="title_dashboard">Tableau de bord</string>
+    <string name="title_notifications">Notification</string>
+    <string name="completed">Complété</string>
+    <string name="Loading">Chargement %d/10 ...</string>
+</resources>
