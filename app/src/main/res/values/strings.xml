@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">TPTenretni</string>
+    <string name="app_name">Tenretni</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="completed">Completed</string>
+    <string name="CompagnyName" translatable="false">Tenretni - 2023®</string>
+    <string name="Name" translatable="false">Ludovic Fournier - Cedrick Robichaud - Zakaria Mrad</string>
+    <string name="Loading">Loading %d/10 ...</string>
 </resources>
