@@ -11,7 +11,15 @@ object Constants {
         const val NETWORK = "$BASE_API/network"
     }
 
-    const val LOADING_TIME= 1000L * 1
+    object Refresh_Delay {
+        const val GATEWAY_REFRESH = 1000L * 60
+        const val LOADING_TIME = 1000L * 1
+    }
+
+
+    object Gateway{
+        const val ONLINE="Online"
+    }
     const val FLAG_API_URL = "https://flagcdn.com/h40/%s.png"
 
     enum class TicketPriority {
@@ -24,6 +32,10 @@ object Constants {
 
     enum class ConnectionStatus {
         Online, Offline
+    }
+
+    object RecyclerAdapters {
+        const val Gateways = 2
     }
 
 }

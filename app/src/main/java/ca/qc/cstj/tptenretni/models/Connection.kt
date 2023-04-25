@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Connection(
-    val status : String,
-    val ip : String,
-    val download : Float,
-    val upload : Float,
-    val signal : Int,
-    val ping : Int
+    val status : String="",
+    val download : Float=0F,
+    val ip : String="",
+    val ping : Int=0,
+    val signal : Int=0,
+    val upload : Float=0F,
 )
