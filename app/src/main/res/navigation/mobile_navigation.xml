@@ -3,23 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
+    app:startDestination="@id/navigation_tickets">
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="ca.qc.cstj.tptenretni.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/navigation_tickets"
+        android:name="ca.qc.cstj.tptenretni.ui.tickets.TicketsFragment"
+        android:label="@string/title_tickets"
+        tools:layout="@layout/fragment_gateways" />
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="ca.qc.cstj.tptenretni.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/navigation_networks"
+        android:name="ca.qc.cstj.tptenretni.ui.network.NetworkFragment"
+        android:label="@string/title_networks"
+        tools:layout="@layout/fragment_network" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="ca.qc.cstj.tptenretni.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_gateways"
+        android:name="ca.qc.cstj.tptenretni.ui.gateways.GatewaysFragment"
+        android:label="@string/title_gateways"
+        tools:layout="@layout/fragment_tickets" />
 </navigation>

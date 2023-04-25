@@ -3,6 +3,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_tickets">Tickets</string>
+    <string name="title_gateways">Gateways</string>
+    <string name="title_networks">Network</string>
     <string name="completed">Completed</string>
     <string name="CompagnyName" translatable="false">Tenretni - 2023®</string>
     <string name="Name" translatable="false">Ludovic Fournier - Cedrick Robichaud - Zakaria Mrad</string>
