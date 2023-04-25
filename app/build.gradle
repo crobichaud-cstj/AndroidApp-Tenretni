@@ -62,6 +62,10 @@ dependencies {
     //https://github.com/G00fY2/quickie
     implementation 'io.github.g00fy2.quickie:quickie-bundled:1.4.1'
 
+    //Bibliothèque Fuel pour les requêtes HTTP
+    implementation 'com.github.kittinunf.fuel:fuel-android:2.3.1'
+    implementation 'com.github.kittinunf.fuel:fuel-json:2.3.1'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
