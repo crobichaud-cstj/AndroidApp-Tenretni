@@ -11,7 +11,7 @@ object Constants {
         const val NETWORK = "$BASE_API/network"
     }
 
-    const val LOADING_TIME= 1000L * 10
+    const val LOADING_TIME= 1000L * 1
     const val FLAG_API_URL = "https://flagcdn.com/h40/%s.png"
 
     enum class TicketPriority {
