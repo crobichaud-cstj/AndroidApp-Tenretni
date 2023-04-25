@@ -1,5 +1,7 @@
-package ca.qc.cstj.tptenretni
+package ca.qc.cstj.tptenretni.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import ca.qc.cstj.tptenretni.R
 import ca.qc.cstj.tptenretni.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -31,5 +34,11 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    companion object {
+        fun newIntent(context : Context) : Intent {
+            return Intent(context, MainActivity::class.java)
+        }
     }
 }
