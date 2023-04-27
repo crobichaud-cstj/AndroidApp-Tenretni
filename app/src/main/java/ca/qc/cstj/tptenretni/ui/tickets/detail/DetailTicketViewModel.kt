@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import ca.qc.cstj.tptenretni.core.ApiResult
 import ca.qc.cstj.tptenretni.data.repositories.CustomerRepository
 import ca.qc.cstj.tptenretni.data.repositories.TicketRepository
+import ca.qc.cstj.tptenretni.models.Gateway
+import ca.qc.cstj.tptenretni.models.Ticket
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -46,6 +48,20 @@ class DetailTicketViewModel(private val href: String) : ViewModel() {
                         is ApiResult.Success -> {
                             DetailTicketUiState.SuccessCustomer(apiResult.data);
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    fun addGateway(ticket: Ticket, gateway:Gateway) {
+        viewModelScope.launch {
+            customerRepository.addGateway(ticket, gateway).collect{apiResult ->
+                _detailTicketUiState.update {
+                    when(apiResult){
+                        is ApiResult.Error -> DetailTicketUiState.Error(apiResult.exception)
+                        ApiResult.Loading -> DetailTicketUiState.Loading
+                        is ApiResult.Success -> DetailTicketUiState.SuccessGateway(apiResult.data)
                     }
                 }
             }

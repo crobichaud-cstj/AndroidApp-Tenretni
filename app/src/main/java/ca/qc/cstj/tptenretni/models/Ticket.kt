@@ -9,7 +9,7 @@ data class Ticket(
     val createdDate : String="",
     val priority : String="",
     val status : String="",
-    val customer : Customer = Customer(),
+    var customer : Customer = Customer(),
     val config : Config = Config(),
     val connection : Connection = Connection()
 )
