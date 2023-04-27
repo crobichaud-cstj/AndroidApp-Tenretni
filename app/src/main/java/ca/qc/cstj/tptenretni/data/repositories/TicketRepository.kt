@@ -14,26 +14,30 @@ class TicketRepository {
     private val ticketRepository = TicketDataSource()
     fun retrieveAll() : Flow<ApiResult<List<Ticket>>> {
         return flow {
+            while (true) {
+
             emit(ApiResult.Loading)
             try {
                 emit(ApiResult.Success(ticketRepository.retrieveAll()))
-            } catch (ex: Exception){
+            } catch (ex: Exception) {
                 emit(ApiResult.Error(ex))
             }
             delay(Constants.Refresh_Delay.TICKET_DETAIL_REFRESH)
+        }
 
         }.flowOn(Dispatchers.IO)
     }
     fun retrieveOne(href:String) : Flow<ApiResult<Ticket>> {
         return flow {
-            emit(ApiResult.Loading)
-            try {
-                emit(ApiResult.Success(ticketRepository.retrieveOne(href)))
-            } catch (ex: Exception){
-                emit(ApiResult.Error(ex))
+            while(true) {
+                emit(ApiResult.Loading)
+                try {
+                    emit(ApiResult.Success(ticketRepository.retrieveOne(href)))
+                } catch (ex: Exception) {
+                    emit(ApiResult.Error(ex))
+                }
+                delay(Constants.Refresh_Delay.TICKET_DETAIL_REFRESH)
             }
-            delay(Constants.Refresh_Delay.TICKET_DETAIL_REFRESH)
-
         }.flowOn(Dispatchers.IO)
     }
 
