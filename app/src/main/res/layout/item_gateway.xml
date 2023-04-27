@@ -16,9 +16,12 @@
             android:id="@+id/chpStatus"
             android:layout_width="150dp"
             android:layout_height="50dp"
+            android:text="test"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:chipSurfaceColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
