@@ -10,4 +10,9 @@
     <string name="CompagnyName" translatable="false">Tenretni - 2023®</string>
     <string name="Name" translatable="false">Ludovic Fournier - Cedrick Robichaud - Zakaria Mrad</string>
     <string name="Loading">Loading %d/10 ...</string>
+    <string name="apiErrorMessage">There was an error while retriving data from the server :(</string>
+    <string name="ping" translatable="false">%d ns</string>
+    <string name="connectionSpeed" translatable="false">%.3f Ebps</string>
+    <string name="offline" translatable="false">N/A</string>
+    <string name="Online" translatable="false">Online</string>
 </resources>

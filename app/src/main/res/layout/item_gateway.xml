@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chpStatus"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txvPing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/txvDownload"
+            app:layout_constraintEnd_toEndOf="@+id/txvDownload"
+            app:layout_constraintStart_toStartOf="@+id/txvDownload"
+            app:layout_constraintTop_toBottomOf="@+id/chpStatus" />
+
+        <TextView
+            android:id="@+id/txvDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/txvUpload"
+            app:layout_constraintEnd_toEndOf="@+id/txvUpload"
+            app:layout_constraintStart_toStartOf="@+id/txvUpload" />
+
+        <TextView
+            android:id="@+id/txvUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/txvSerialNumber"
+            app:layout_constraintEnd_toEndOf="@+id/txvSerialNumber"
+            app:layout_constraintStart_toStartOf="@+id/txvSerialNumber" />
+
+        <TextView
+            android:id="@+id/txvSerialNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgPing"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txvPing"
+            app:layout_constraintEnd_toStartOf="@+id/txvPing"
+            app:layout_constraintTop_toBottomOf="@+id/chpStatus"
+            app:srcCompat="@drawable/ic_baseline_sync_alt_24" />
+
+        <ImageView
+            android:id="@+id/imgDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txvDownload"
+            app:layout_constraintEnd_toStartOf="@+id/txvDownload"
+            app:layout_constraintTop_toBottomOf="@+id/txvPing"
+            app:srcCompat="@drawable/ic_outline_cloud_download_24" />
+
+        <ImageView
+            android:id="@+id/imgUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txvUpload"
+            app:layout_constraintEnd_toStartOf="@+id/txvUpload"
+            app:layout_constraintTop_toBottomOf="@+id/txvDownload"
+            app:srcCompat="@drawable/ic_outline_cloud_upload_24" />
+
+        <TextView
+            android:id="@+id/txvOffline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/offline"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/txvUpload"
+            app:layout_constraintEnd_toEndOf="@+id/chpStatus"
+            app:layout_constraintStart_toStartOf="@+id/chpStatus"
+            app:layout_constraintTop_toBottomOf="@+id/chpStatus" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
