@@ -16,4 +16,5 @@
     <string name="offline" translatable="false">N/A</string>
     <string name="Online" translatable="false">Online</string>
     <string name="install">Install</string>
+    <string name="ticket_id">Ticket %s</string>
 </resources>
