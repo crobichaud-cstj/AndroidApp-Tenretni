@@ -1,5 +1,6 @@
 package ca.qc.cstj.tptenretni.ui.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,20 +21,30 @@ class TicketRecycletViewAdapter(var tickets: List<Ticket>,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ticket = tickets[position]
-        holder.bind(ticket)
+        holder.bind(ticket, holder.itemView.context, ::getString)
 
         holder.itemView.setOnClickListener{
-            onTicketItemClick(ticket)
+            onTicketClick(ticket)
         }
     }
 
     override fun getItemCount() = tickets.size
 
+    fun getString(context: Context, id: Int, arg: Any?): String {
+        return if (arg == null)
+            context.getString(id)
+        else
+            context.getString(id, arg)
+    }
+
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemTicketBinding.bind(view)
 
-        fun bind(ticket: Ticket) {
+        fun bind(ticket: Ticket , context: Context, getString: (Context, Int, Any?) -> String) {
 
+            binding.chpTicketStatus.text = ticket.status
+            binding.chpTicketPriority.text = ticket.priority
+            binding.txvTicketId.text =  getString(context, R.string.ticket_id, ticket.ticketNumber)
 
         }
     }
