@@ -37,7 +37,19 @@ class DetailTicketViewModel(private val href: String) : ViewModel() {
     }
 
     private fun loadCustomer(href: String) {
-
+        viewModelScope.launch {
+            customerRepository.retrieveOne(href).collect { apiResult ->
+                _detailTicketUiState.update {
+                    when (apiResult) {
+                        is ApiResult.Error -> DetailTicketUiState.Error(apiResult.exception)
+                        ApiResult.Loading -> DetailTicketUiState.Loading
+                        is ApiResult.Success -> {
+                            DetailTicketUiState.SuccessCustomer(apiResult.data);
+                        }
+                    }
+                }
+            }
+        }
     }
 
 

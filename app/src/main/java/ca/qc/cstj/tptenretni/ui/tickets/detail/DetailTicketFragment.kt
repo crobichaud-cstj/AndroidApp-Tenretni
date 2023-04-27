@@ -43,7 +43,9 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
                     binding.txvHref.text=it.ticket.href
                 }
 
-                is DetailTicketUiState.SuccessCustomer -> Unit
+                is DetailTicketUiState.SuccessCustomer ->{
+                    binding.textView2.text = it.customer.href
+                }
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 

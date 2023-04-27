@@ -20,10 +20,17 @@
         android:id="@+id/btnInstall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/install"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.527"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintBottom_toTopOf="@+id/txvHref"
+        app:layout_constraintEnd_toEndOf="@+id/txvHref"
+        app:layout_constraintStart_toStartOf="@+id/txvHref" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/txvHref"
+        app:layout_constraintStart_toStartOf="@+id/txvHref"
+        app:layout_constraintTop_toBottomOf="@+id/txvHref" />
 </androidx.constraintlayout.widget.ConstraintLayout>
