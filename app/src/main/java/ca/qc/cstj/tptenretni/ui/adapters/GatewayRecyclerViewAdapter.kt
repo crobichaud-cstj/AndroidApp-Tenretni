@@ -28,45 +28,45 @@ class GatewayRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val planet = gateways[position]
-        holder.bind(planet, holder.itemView.context, ::getString)
+        holder.bind(planet)
     }
 
     override fun getItemCount() = gateways.size
 
-    fun getString(context: Context, id: Int, arg: Any?): String {
-        return if (arg == null)
-            context.getString(id)
-        else
-            context.getString(id, arg)
-    }
 
     inner class ViewHolder(private val binding: ItemGatewayBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(gateway: Gateway, context: Context, getString: (Context, Int, Any?) -> String) {
-            binding.txvSerialNumber.text = gateway.serialNumber
+        fun bind(gateway: Gateway) {
+            with(binding) {
 
-            if (gateway.connection.status == Constants.Gateway.ONLINE) {
-                binding.txvPing.text = getString(context, R.string.ping, gateway.connection.ping)
-                binding.txvDownload.text =
-                    getString(context, R.string.connectionSpeed, gateway.connection.download)
-                binding.txvUpload.text =
-                    getString(context, R.string.connectionSpeed, gateway.connection.upload)
-                binding.chpStatus.text = gateway.connection.status
-                binding.chpStatus.chipBackgroundColor =
-                    ColorStateList.valueOf(context.getColor(R.color.gateway_status_online))
-                binding.txvOffline.visibility = View.GONE
-            } else {
-                binding.txvPing.visibility = View.GONE
-                binding.txvDownload.visibility = View.GONE
-                binding.txvUpload.visibility = View.GONE
-                binding.imgPing.visibility = View.GONE
-                binding.imgDownload.visibility = View.GONE
-                binding.imgUpload.visibility = View.GONE
-                binding.chpStatus.text = gateway.connection.status
-                binding.chpStatus.chipBackgroundColor =
-                    ColorStateList.valueOf(context.getColor(R.color.gateway_status_offline))
-                binding.txvOffline.visibility = View.VISIBLE
+                txvSerialNumber.text = gateway.serialNumber
+
+                if (gateway.connection.status == Constants.Gateway.ONLINE) {
+                    txvPing.text = root.context.getString(R.string.ping, gateway.connection.ping)
+                    txvDownload.text =
+                        root.context.getString(
+                            R.string.connectionSpeed,
+                            gateway.connection.download
+                        )
+                    txvUpload.text =
+                        root.context.getString(R.string.connectionSpeed, gateway.connection.upload)
+                    chpStatus.text = gateway.connection.status
+                    chpStatus.chipBackgroundColor =
+                        ColorStateList.valueOf(root.context.getColor(R.color.gateway_status_online))
+                    txvOffline.visibility = View.GONE
+                } else {
+                    txvPing.visibility = View.GONE
+                    txvDownload.visibility = View.GONE
+                    txvUpload.visibility = View.GONE
+                    imgPing.visibility = View.GONE
+                    imgDownload.visibility = View.GONE
+                    imgUpload.visibility = View.GONE
+                    chpStatus.text = gateway.connection.status
+                    chpStatus.chipBackgroundColor =
+                        ColorStateList.valueOf(root.context.getColor(R.color.gateway_status_offline))
+                    txvOffline.visibility = View.VISIBLE
+                }
             }
 
         }

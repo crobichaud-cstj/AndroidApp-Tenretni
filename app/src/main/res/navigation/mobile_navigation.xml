@@ -9,12 +9,12 @@
         android:name="ca.qc.cstj.tptenretni.ui.tickets.TicketsFragment"
         android:label="@string/title_tickets"
         tools:layout="@layout/fragment_tickets" >
-        <action
-            android:id="@+id/action_navigation_tickets_to_detailTicketFragment"
-            app:destination="@id/detailTicketFragment" />
         <argument
             android:name="href"
             app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_tickets_to_detailTicketFragment"
+            app:destination="@id/detailTicketFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_networks"
@@ -28,7 +28,11 @@
         tools:layout="@layout/fragment_gateways" />
     <fragment
         android:id="@+id/detailTicketFragment"
-        android:name="ca.qc.cstj.tptenretni.ui.tickets.DetailTicketFragment"
+        android:name="ca.qc.cstj.tptenretni.ui.tickets.detail.DetailTicketFragment"
         android:label="fragment_detail_ticket"
-        tools:layout="@layout/fragment_detail_ticket" />
+        tools:layout="@layout/fragment_detail_ticket" >
+        <argument
+            android:name="href"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -23,7 +23,7 @@ class TicketRecycletViewAdapter(var tickets: List<Ticket>,
         holder.bind(ticket)
 
         holder.itemView.setOnClickListener{
-            onTicketItemClick(ticket)
+            onTicketClick(ticket)
         }
     }
 

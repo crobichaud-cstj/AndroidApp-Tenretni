@@ -1,7 +1,5 @@
 package ca.qc.cstj.tptenretni.ui.gateways
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import ca.qc.cstj.tptenretni.core.ApiResult
@@ -18,10 +16,10 @@ class GatewaysViewModel : ViewModel() {
     private val _gatewaysUiState = MutableStateFlow<GatewaysUiState>(GatewaysUiState.Loading)
     val gatewaysUiState = _gatewaysUiState.asStateFlow()
     init {
-        refreshPlanets()
+        refreshGateways()
     }
 
-    fun refreshPlanets() {
+    private fun refreshGateways() {
         viewModelScope.launch {
             gatewayRepository.retrieveAll().collect {
                 _gatewaysUiState.update { _ ->
