@@ -12,20 +12,12 @@ import androidx.navigation.fragment.navArgs
 import ca.qc.cstj.tptenretni.R
 import ca.qc.cstj.tptenretni.core.Constants
 import ca.qc.cstj.tptenretni.databinding.FragmentDetailTicketBinding
-<<<<<<< Updated upstream
 import ca.qc.cstj.tptenretni.models.Gateway
 import ca.qc.cstj.tptenretni.models.Ticket
 import ca.qc.cstj.tptenretni.ui.tickets.TicketsFragmentArgs
 import io.github.g00fy2.quickie.QRResult
 import io.github.g00fy2.quickie.ScanQRCode
-=======
-import ca.qc.cstj.tptenretni.databinding.FragmentGatewaysBinding
-import ca.qc.cstj.tptenretni.models.Customer
-import ca.qc.cstj.tptenretni.ui.gateways.GatewaysViewModel
-import ca.qc.cstj.tptenretni.ui.tickets.TicketsFragmentArgs
 import com.google.android.gms.maps.model.LatLng
-import kotlinx.coroutines.channels.ticker
->>>>>>> Stashed changes
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.serialization.decodeFromString
@@ -68,10 +60,8 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
 
                 DetailTicketUiState.Loading -> Unit
                 is DetailTicketUiState.SuccessTicket -> {
-<<<<<<< Updated upstream
                     ticket = it.ticket
                     binding.txvHref.text = it.ticket.href
-=======
                     binding.txvHref.text=it.ticket.href
 
                     when(Constants.TicketStatus.valueOf(it.ticket.status)){
@@ -88,7 +78,6 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
                         }
                     }
 
->>>>>>> Stashed changes
                 }
 
                 is DetailTicketUiState.SuccessCustomer -> {
@@ -99,7 +88,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
                 }
 
                 is DetailTicketUiState.SuccessGateway -> {
-                    binding.textView3.text = it.gateway.serialNumber
+                    binding.txvHref.text = it.gateway.serialNumber
                 }
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
