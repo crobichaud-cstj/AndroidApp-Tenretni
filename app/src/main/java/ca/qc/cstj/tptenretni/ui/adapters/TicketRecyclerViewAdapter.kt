@@ -1,6 +1,5 @@
 package ca.qc.cstj.tptenretni.ui.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,14 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import ca.qc.cstj.tptenretni.R
 import ca.qc.cstj.tptenretni.core.ColorHelper.ticketPriorityColor
 import ca.qc.cstj.tptenretni.core.ColorHelper.ticketStatusColor
-import ca.qc.cstj.tptenretni.core.Constants
 import ca.qc.cstj.tptenretni.core.DateHelper
 import ca.qc.cstj.tptenretni.databinding.ItemTicketBinding
 import ca.qc.cstj.tptenretni.models.Ticket
 
-class TicketRecycleViewAdapter(var tickets: List<Ticket>,
-                               private val onTicketClick: (Ticket)->Unit
-) : RecyclerView.Adapter<TicketRecycleViewAdapter.ViewHolder>() {
+class TicketRecyclerViewAdapter(var tickets: List<Ticket>,
+                                private val onTicketClick: (Ticket)->Unit
+) : RecyclerView.Adapter<TicketRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_ticket, parent, false)
