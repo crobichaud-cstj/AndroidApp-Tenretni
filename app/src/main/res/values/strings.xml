@@ -15,4 +15,5 @@
     <string name="connectionSpeed" translatable="false">%.3f Ebps</string>
     <string name="offline" translatable="false">N/A</string>
     <string name="Online" translatable="false">Online</string>
+    <string name="ticket_id">Ticket %s</string>
 </resources>

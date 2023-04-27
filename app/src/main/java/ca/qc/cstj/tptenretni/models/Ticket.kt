@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 data class Ticket(
     val href : String="",
     val ticketNumber : String="",
-    val createDate : String="",
+    val createdDate : String="",
     val priority : String="",
     val status : String="",
     val customer : Customer = Customer(),
