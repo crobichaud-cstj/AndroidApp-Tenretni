@@ -1,7 +1,10 @@
 package ca.qc.cstj.tptenretni
 
+import android.Manifest
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.navArgs
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -10,11 +13,25 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import ca.qc.cstj.tptenretni.databinding.ActivityMapsBinding
+import com.fondesa.kpermissions.allGranted
+import com.fondesa.kpermissions.extension.permissionsBuilder
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CameraPosition
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
+
+    private val args: MapsActivityArgs by navArgs()
+
+    private val locationPermissionRequest by lazy {
+        permissionsBuilder(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ).build()
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +57,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
+        val permissionStatus = locationPermissionRequest.checkStatus()
+        if(permissionStatus.allGranted()){
+            @SuppressLint("MissingPermission")
+            mMap.isMyLocationEnabled = true
+        }
+
+        val customerMarketOptions = MarkerOptions().position(args.position)
+            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+            .title("${args.customerName}")
+
+
+
+        mMap.addMarker(customerMarketOptions)
+        val cameraPosition = CameraPosition.Builder().target(args.position).zoom(15f).build()
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        //val sydney = LatLng(-34.0, 151.0)
+        //mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+       // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 }

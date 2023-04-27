@@ -34,5 +34,20 @@
         <argument
             android:name="href"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailTicketFragment_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
     </fragment>
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="ca.qc.cstj.tptenretni.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" >
+        <argument
+            android:name="position"
+            app:argType="com.google.android.gms.maps.model.LatLng" />
+        <argument
+            android:name="customerName"
+            app:argType="string" />
+    </activity>
 </navigation>
