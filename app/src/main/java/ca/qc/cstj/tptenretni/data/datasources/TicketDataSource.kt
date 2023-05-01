@@ -27,13 +27,14 @@ class TicketDataSource : JsonDataSource() {
             is Result.Failure -> throw result.error.exception
         }
     }
-    //fun change(href: String, action : String) : Ticket{
-      //  val(_, _, result) =  href.httpPost().responseJson()
+    fun changeStatus(href: String, action : String) : Ticket{
+        val post = href + "/actions?type=" + action
+        val(_, _, result) =  post.httpPost().responseJson()
 
-        //return when (result){
-          //  is Result.Success -> json.decodeFromString(result.value.content)
-            //is Result.Failure -> throw result.error.exception
-        //}
-    //}
+        return when (result){
+            is Result.Success -> json.decodeFromString(result.value.content)
+            is Result.Failure -> throw result.error.exception
+        }
+    }
 
 }
