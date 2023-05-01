@@ -17,4 +17,7 @@
     <string name="Online" translatable="false">Online</string>
     <string name="install">Install</string>
     <string name="ticket_id">Ticket %s</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="solve">SOLVE</string>
+    <string name="open">OPEN</string>
 </resources>
