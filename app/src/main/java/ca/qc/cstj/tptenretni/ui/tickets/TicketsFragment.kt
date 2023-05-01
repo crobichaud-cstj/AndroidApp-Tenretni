@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import ca.qc.cstj.tptenretni.R
 import ca.qc.cstj.tptenretni.databinding.FragmentTicketsBinding
@@ -52,6 +53,7 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
     }
 
     private fun onTicketClick(ticket: Ticket){
-
+        val action = TicketsFragmentDirections.actionNavigationTicketsToDetailTicketFragment(ticket.href)
+        findNavController().navigate(action)
     }
 }

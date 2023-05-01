@@ -11,6 +11,11 @@ object Constants {
         const val NETWORK = "$BASE_API/network"
     }
 
+    object NameStatus {
+        const val OPEN = "open"
+        const val SOLVE = "solve"
+    }
+
     object Refresh_Delay {
         const val TICKET_DETAIL_REFRESH=1000L * 30
         const val GATEWAY_REFRESH = 1000L * 60
