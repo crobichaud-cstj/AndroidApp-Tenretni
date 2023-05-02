@@ -52,7 +52,7 @@ class DetailGatewayFragment: Fragment(R.layout.fragment_detail_gateway) {
                     binding.txvMac.text = gateway.config.mac
                     binding.txvSSID.text = gateway.config.SSID
                     binding.txvPIN.text = gateway.pin
-                    binding.txvKernelRev.text = gateway.config.kernelRevision
+                    binding.txvKernelRev.text = gateway.config.kernelRevision.toString()
                     binding.txvVersion.text = gateway.config.version.toString()
                     binding.txvHash.text = gateway.hash
                     binding.include.txvIp.text = gateway.connection.ip
