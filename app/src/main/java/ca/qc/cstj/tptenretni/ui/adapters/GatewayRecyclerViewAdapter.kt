@@ -13,7 +13,8 @@ import ca.qc.cstj.tptenretni.databinding.ItemGatewayBinding
 import ca.qc.cstj.tptenretni.models.Gateway
 
 class GatewayRecyclerViewAdapter(
-    var gateways: List<Gateway> = listOf()
+    var gateways: List<Gateway> = listOf(),
+    private val onGatewayClick: (Gateway)->Unit
 ) : RecyclerView.Adapter<GatewayRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,8 +28,12 @@ class GatewayRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val planet = gateways[position]
-        holder.bind(planet)
+        val gateway = gateways[position]
+        holder.bind(gateway)
+
+        holder.itemView.setOnClickListener{
+            onGatewayClick(gateway)
+        }
     }
 
     override fun getItemCount() = gateways.size
