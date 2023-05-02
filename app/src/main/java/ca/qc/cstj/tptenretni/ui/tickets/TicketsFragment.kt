@@ -52,6 +52,12 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadTickets()
+    }
+
+
     private fun onTicketClick(ticket: Ticket){
         val action = TicketsFragmentDirections.actionNavigationTicketsToDetailTicketFragment(ticket.href)
         findNavController().navigate(action)

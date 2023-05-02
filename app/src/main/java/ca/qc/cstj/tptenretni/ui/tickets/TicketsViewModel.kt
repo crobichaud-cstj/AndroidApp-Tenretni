@@ -19,6 +19,10 @@ class TicketsViewModel : ViewModel() {
     val ticketsUiState = _ticketsUiState.asStateFlow()
 
     init {
+        loadTickets()
+    }
+
+    fun loadTickets(){
         viewModelScope.launch {
             ticketsRepository.retrieveAll().collect { apiResult ->
                 _ticketsUiState.update { _ ->

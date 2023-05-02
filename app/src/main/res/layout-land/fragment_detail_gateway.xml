@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/include"
+        android:layout_width="287dp"
+        android:layout_height="194dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="15dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/btnReboot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chpStatus"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/txvIp"
+                app:layout_constraintStart_toStartOf="@+id/txvIp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txvIp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="TextView"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chpStatus" />
+
+            <TextView
+                android:id="@+id/txvPing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/imgWifi"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imgPing"
+                app:layout_constraintTop_toBottomOf="@+id/txvIp" />
+
+            <TextView
+                android:id="@+id/txvDownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/imgUpload"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imgDownload"
+                app:layout_constraintTop_toBottomOf="@+id/txvPing" />
+
+            <TextView
+                android:id="@+id/txvUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txvDownload"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imgUpload"
+                app:layout_constraintTop_toTopOf="@+id/txvDownload"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/txvSignal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@color/ticket_priority_high"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txvPing"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imgWifi"
+                app:layout_constraintTop_toTopOf="@+id/txvPing" />
+
+            <ImageView
+                android:id="@+id/imgWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/txvSignal"
+                app:layout_constraintEnd_toStartOf="@+id/txvSignal"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txvPing"
+                app:layout_constraintTop_toTopOf="@+id/txvSignal"
+                app:srcCompat="@drawable/ic_baseline_signal_cellular_alt_24" />
+
+            <ImageView
+                android:id="@+id/imgPing"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/txvPing"
+                app:layout_constraintEnd_toStartOf="@+id/txvPing"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txvPing"
+                app:srcCompat="@drawable/ic_baseline_sync_alt_24" />
+
+            <ImageView
+                android:id="@+id/imgDownload"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/txvDownload"
+                app:layout_constraintEnd_toStartOf="@+id/txvDownload"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txvDownload"
+                app:srcCompat="@drawable/ic_outline_cloud_download_24" />
+
+            <ImageView
+                android:id="@+id/imgUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/txvUpload"
+                app:layout_constraintEnd_toStartOf="@+id/txvUpload"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txvDownload"
+                app:layout_constraintTop_toTopOf="@+id/txvUpload"
+                app:srcCompat="@drawable/ic_outline_cloud_upload_24" />
+
+            <TextView
+                android:id="@+id/txvOffline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/offline"
+                android:textSize="45sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/txvSignal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
+        app:layout_constraintEnd_toStartOf="@+id/include"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txvSerialNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/txvMac"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txvMac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/txvSSID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvSerialNumber" />
+
+        <TextView
+            android:id="@+id/txvSSID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/txvHash"
+            app:layout_constraintEnd_toStartOf="@+id/txvPIN"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvMac" />
+
+        <TextView
+            android:id="@+id/txvPIN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/txvSSID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvSSID"
+            app:layout_constraintTop_toTopOf="@+id/txvSSID" />
+
+        <TextView
+            android:id="@+id/txvHash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/imv3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvSSID" />
+
+        <ImageView
+            android:id="@+id/imv1"
+            android:layout_width="59dp"
+            android:layout_height="57dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imv2"
+            app:layout_constraintEnd_toStartOf="@+id/imv2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imv2"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imv2"
+            android:layout_width="59dp"
+            android:layout_height="57dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imv3"
+            app:layout_constraintEnd_toStartOf="@+id/imv3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imv1"
+            app:layout_constraintTop_toTopOf="@+id/imv3"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imv3"
+            android:layout_width="59dp"
+            android:layout_height="57dp"
+            app:layout_constraintBottom_toTopOf="@+id/txvKernelRev"
+            app:layout_constraintEnd_toStartOf="@+id/imv4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imv2"
+            app:layout_constraintTop_toBottomOf="@+id/txvHash"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imv5"
+            android:layout_width="59dp"
+            android:layout_height="57dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imv4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imv4"
+            app:layout_constraintTop_toTopOf="@+id/imv4"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imv4"
+            android:layout_width="59dp"
+            android:layout_height="57dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imv3"
+            app:layout_constraintEnd_toStartOf="@+id/imv5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imv3"
+            app:layout_constraintTop_toTopOf="@+id/imv3"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txvKernelRev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txvVersion"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imv3" />
+
+        <TextView
+            android:id="@+id/txvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/txvKernelRev"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvKernelRev"
+            app:layout_constraintTop_toTopOf="@+id/txvKernelRev" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/btnReboot"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
+        app:layout_constraintTop_toTopOf="@+id/btnReboot"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnReboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/include"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/include"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/pgbLoading"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:indeterminateTint="@android:color/black"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="363dp"
+        tools:layout_editor_absoluteY="-72dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
