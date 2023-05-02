@@ -4,6 +4,7 @@ import ca.qc.cstj.tptenretni.core.ApiResult
 import ca.qc.cstj.tptenretni.core.Constants
 import ca.qc.cstj.tptenretni.data.datasources.GatewayDataSource
 import ca.qc.cstj.tptenretni.models.Gateway
+import ca.qc.cstj.tptenretni.models.Ticket
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -20,6 +21,20 @@ class GatewayRepository {
                 emit(ApiResult.Loading)
                 try {
                     emit(ApiResult.Success(gatewayRepository.retrieveAll()))
+                } catch (ex:Exception) {
+                    emit(ApiResult.Error(ex))
+                }
+                delay(Constants.Refresh_Delay.GATEWAY_REFRESH)
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    fun retrieveOne(href : String) : Flow<ApiResult<Gateway>> {
+        return flow {
+            while(true) {
+                emit(ApiResult.Loading)
+                try {
+                    emit(ApiResult.Success(gatewayRepository.retrieveOne(href)))
                 } catch (ex:Exception) {
                     emit(ApiResult.Error(ex))
                 }

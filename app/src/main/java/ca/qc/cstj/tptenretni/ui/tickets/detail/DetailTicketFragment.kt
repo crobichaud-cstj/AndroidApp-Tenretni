@@ -59,7 +59,9 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
                     requireActivity().supportFragmentManager.popBackStack()
                 }
 
-                DetailTicketUiState.Loading -> Unit
+                DetailTicketUiState.Loading -> {
+
+                }
                 is DetailTicketUiState.SuccessTicket -> {
                     ticket = it.ticket
                     binding.txvHref.text = it.ticket.href

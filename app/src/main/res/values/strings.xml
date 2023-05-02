@@ -10,14 +10,20 @@
     <string name="CompagnyName" translatable="false">Tenretni - 2023®</string>
     <string name="Name" translatable="false">Ludovic Fournier - Cedrick Robichaud - Zakaria Mrad</string>
     <string name="Loading">Loading %d/10 ...</string>
-    <string name="apiErrorMessage">There was an error while retriving data from the server :(</string>
+    <string name="apiErrorMessage">There was an error while retrieving data from the server :(</string>
     <string name="ping" translatable="false">%d ns</string>
+    <string name="signal" translatable="false">%d dBm</string>
+    <string name="kernel">Kernel revision %d</string>
+    <string name="ssid" translatable="false">SSID: %s</string>
+    <string name="version" translatable="false">Version %s</string>
+    <string name="pin" translatable="false">PIN: %s</string>
     <string name="connectionSpeed" translatable="false">%.3f Ebps</string>
     <string name="offline" translatable="false">N/A</string>
     <string name="Online" translatable="false">Online</string>
     <string name="install">Install</string>
     <string name="ticket_id">Ticket %s</string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps">Map</string>
     <string name="solve">SOLVE</string>
     <string name="open">OPEN</string>
+    <string name="imgElement">R.drawable.element_%s.png</string>
 </resources>

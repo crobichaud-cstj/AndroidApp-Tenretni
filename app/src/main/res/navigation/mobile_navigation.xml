@@ -25,7 +25,11 @@
         android:id="@+id/navigation_gateways"
         android:name="ca.qc.cstj.tptenretni.ui.gateways.GatewaysFragment"
         android:label="@string/title_gateways"
-        tools:layout="@layout/fragment_gateways" />
+        tools:layout="@layout/fragment_gateways" >
+        <action
+            android:id="@+id/action_navigation_gateways_to_detailGatewayFragment"
+            app:destination="@id/detailGatewayFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailTicketFragment"
         android:name="ca.qc.cstj.tptenretni.ui.tickets.detail.DetailTicketFragment"
@@ -50,4 +54,12 @@
             android:name="customerName"
             app:argType="string" />
     </activity>
+    <fragment
+        android:id="@+id/detailGatewayFragment"
+        android:name="ca.qc.cstj.tptenretni.ui.gateways.detail.DetailGatewayFragment"
+        android:label="DetailGatewayFragment" >
+        <argument
+            android:name="href"
+            app:argType="string" />
+    </fragment>
 </navigation>

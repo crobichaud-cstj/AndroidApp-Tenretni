@@ -31,7 +31,7 @@ class GatewaysFragment : Fragment(R.layout.fragment_gateways) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        gatewayRecyclerViewAdapter = GatewayRecyclerViewAdapter(listOf())
+        gatewayRecyclerViewAdapter = GatewayRecyclerViewAdapter(listOf(), ::onGatewayClick)
 
         binding.rcvPlanets.apply {
             layoutManager = GridLayoutManager(requireContext(),Constants.RecyclerAdapters.Gateways)
@@ -59,6 +59,11 @@ class GatewaysFragment : Fragment(R.layout.fragment_gateways) {
 
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
+    }
+
+    private fun onGatewayClick(gateway: Gateway){
+        val action = GatewaysFragmentDirections.actionNavigationGatewaysToDetailGatewayFragment(gateway.href)
+        findNavController().navigate(action)
     }
 
 }
