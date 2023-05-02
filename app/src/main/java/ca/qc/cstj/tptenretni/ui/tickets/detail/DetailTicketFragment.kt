@@ -35,7 +35,6 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
 
     }
 
-
     private val scanQRCode = registerForActivityResult(ScanQRCode(), ::handleQuickieResult)
 
     private var ticket: Ticket = Ticket()
@@ -66,8 +65,17 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
                     binding.txvHref.text=it.ticket.href
 
                     when(Constants.TicketStatus.valueOf(it.ticket.status)){
-                        Constants.TicketStatus.Open -> statusOpen()
-                        Constants.TicketStatus.Solved -> statusSolve()
+                        Constants.TicketStatus.Open -> {
+                            binding.btnOpen.visibility = View.GONE
+                            binding.btnInstall.visibility = View.VISIBLE
+                            binding.btnSolve.visibility = View.VISIBLE
+
+                        }
+                        Constants.TicketStatus.Solved -> {
+                            binding.btnOpen.visibility = View.VISIBLE
+                            binding.btnInstall.visibility = View.GONE
+                            binding.btnSolve.visibility = View.GONE
+                        }
                     }
 
                 }
@@ -86,16 +94,18 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         binding.btnOpen.setOnClickListener{
-
-            viewModel.changeStatus(Constants.NameStatus.OPEN)
-            statusOpen()
+            //binding.btnOpen.visibility = View.GONE
+            //binding.btnInstall.visibility = View.VISIBLE
+            //binding.btnSolve.visibility = View.VISIBLE
 
 
         }
 
         binding.btnSolve.setOnClickListener{
-            viewModel.changeStatus(Constants.NameStatus.SOLVE)
-            statusSolve()
+           // binding.btnOpen.visibility = View.VISIBLE
+           // binding.btnInstall.visibility = View.GONE
+           // binding.btnSolve.visibility = View.GONE
+
         }
 
         binding.fabLocation.setOnClickListener{
@@ -104,18 +114,6 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
                 findNavController().navigate(action)
             }
         }
-    }
-
-    private fun statusOpen(){
-        binding.btnOpen.visibility = View.GONE
-        binding.btnInstall.visibility = View.VISIBLE
-        binding.btnSolve.visibility = View.VISIBLE
-    }
-
-    private fun statusSolve(){
-        binding.btnOpen.visibility = View.VISIBLE
-        binding.btnInstall.visibility = View.GONE
-        binding.btnSolve.visibility = View.GONE
     }
 
     private fun handleQuickieResult(qrResult: QRResult) {
