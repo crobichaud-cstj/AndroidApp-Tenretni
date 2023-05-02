@@ -8,6 +8,6 @@ data class Config(
     val mac : String="",
     val SSID : String="",
     val version : String="",
-    val kernelRevision : Int=0,
+    val kernelRevision : String="",
     val installDate : String="",
 )
