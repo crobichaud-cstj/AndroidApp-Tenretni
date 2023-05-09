@@ -10,8 +10,10 @@ import ca.qc.cstj.tptenretni.data.repositories.GatewayRepository
 import ca.qc.cstj.tptenretni.models.Gateway
 import ca.qc.cstj.tptenretni.models.Ticket
 import ca.qc.cstj.tptenretni.ui.gateways.GatewaysUiState
+import com.google.android.gms.common.api.Api
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -38,6 +40,19 @@ class DetailTicketViewModel(private val href: String) : ViewModel() {
                         }
                     }
                 }
+            }
+
+        }
+        viewModelScope.launch {
+            gatewayRepository.retrieveAll().collect { apiResult ->
+                _detailTicketUiState.update {
+                    when (apiResult) {
+                        is ApiResult.Error -> DetailTicketUiState.Error(apiResult.exception)
+                        ApiResult.Loading -> DetailTicketUiState.Loading
+                        is ApiResult.Success -> DetailTicketUiState.SuccessGateways(apiResult.data)
+                    }
+                }
+
             }
         }
     }
@@ -82,20 +97,6 @@ class DetailTicketViewModel(private val href: String) : ViewModel() {
                         is ApiResult.Error -> DetailTicketUiState.Error(apiResult.exception)
                         ApiResult.Loading -> DetailTicketUiState.Loading
                         is ApiResult.Success -> DetailTicketUiState.SuccessGateway(apiResult.data)
-                    }
-                }
-            }
-        }
-    }
-
-    private fun refreshGateways() {
-        viewModelScope.launch {
-            gatewayRepository.retrieveAll().collect {
-                _detailTicketUiState.update { _ ->
-                    when (it) {
-                        is ApiResult.Error -> DetailTicketUiState.Error(it.exception)
-                        ApiResult.Loading -> DetailTicketUiState.Loading
-                        is ApiResult.Success -> DetailTicketUiState.SuccessGateways(it.data)
                     }
                 }
             }

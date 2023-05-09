@@ -125,13 +125,12 @@
                 android:id="@+id/rcvGateways"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txvPays"
-                tools:itemCount="10"
+                app:layout_constraintTop_toBottomOf="@+id/txvGatways"
                 tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 tools:layout_editor_absoluteX="-10dp"
                 tools:listitem="@layout/item_gateway"
+                tools:itemCount="10"
                 tools:spanCount="2" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -178,10 +177,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/txvAdresse" />
 
             <TextView
-                android:id="@+id/txvPays"
+                android:id="@+id/txvGatways"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="Gateways"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/rcvGateways"
                 app:layout_constraintEnd_toEndOf="@+id/txvNom"
                 app:layout_constraintStart_toStartOf="@+id/txvNom"
@@ -192,7 +192,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_notification_clear_all"
-                app:layout_constraintBottom_toTopOf="@+id/txvPays"
+                app:layout_constraintBottom_toTopOf="@+id/txvGatways"
                 app:layout_constraintEnd_toEndOf="@+id/txvNom"
                 app:layout_constraintStart_toStartOf="@+id/txvNom"
                 app:layout_constraintTop_toBottomOf="@+id/txvVille" />

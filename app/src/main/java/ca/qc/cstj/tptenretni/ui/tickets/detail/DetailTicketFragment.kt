@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import ca.qc.cstj.tptenretni.R
 import ca.qc.cstj.tptenretni.core.ColorHelper
 import ca.qc.cstj.tptenretni.core.Constants
@@ -35,6 +36,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
 
     private lateinit var gatewayRecyclerViewAdapter: GatewayRecyclerViewAdapter
 
+
     private val binding: FragmentDetailTicketBinding by viewBinding()
     private val viewModel: DetailTicketViewModel by viewModels {
         DetailTicketViewModel.Factory(args.href)
@@ -50,9 +52,14 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.btnInstall.setOnClickListener{
             scanQRCode.launch(null);
         }
+
+        gatewayRecyclerViewAdapter = GatewayRecyclerViewAdapter()
+
+        binding.rcvGateways.adapter = gatewayRecyclerViewAdapter
 
         viewModel.detailTicketUiState.onEach {
             when (it) {
@@ -83,13 +90,11 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
                     }
 
                 }
-
                 is DetailTicketUiState.SuccessCustomer -> {
                     ticket.customer = it.customer
                     binding.txvNom.text = it.customer.firstName + " " + it.customer.lastName
                     binding.txvVille.text = it.customer.city
                     binding.txvAdresse.text = it.customer.address
-                    binding.txvPays.text = it.customer.country
                     customerName = it.customer.firstName + " " + it.customer.lastName
                     position = LatLng(it.customer.coord.latitude.toDouble(), it.customer.coord.longitude.toDouble())
                 }
