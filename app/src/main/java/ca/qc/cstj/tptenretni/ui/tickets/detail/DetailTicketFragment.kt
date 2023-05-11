@@ -16,6 +16,7 @@ import ca.qc.cstj.tptenretni.core.ColorHelper
 import ca.qc.cstj.tptenretni.core.Constants
 import ca.qc.cstj.tptenretni.core.DateHelper
 import ca.qc.cstj.tptenretni.databinding.FragmentDetailTicketBinding
+import ca.qc.cstj.tptenretni.models.Customer
 import ca.qc.cstj.tptenretni.models.Gateway
 import ca.qc.cstj.tptenretni.models.Ticket
 import ca.qc.cstj.tptenretni.ui.tickets.TicketsFragmentArgs
@@ -32,6 +33,8 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
     private val args: TicketsFragmentArgs by navArgs()
 
     private var position : LatLng? = null
+    private var customer : Customer = Customer()
+    private var ticket: Ticket = Ticket()
     private lateinit var customerName : String
 
     private lateinit var gatewayRecyclerViewAdapter: GatewayRecyclerViewAdapter
@@ -43,10 +46,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
 
     }
 
-
     private val scanQRCode = registerForActivityResult(ScanQRCode(), ::handleQuickieResult)
-
-    private var ticket: Ticket = Ticket()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -91,12 +91,13 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
 
                 }
                 is DetailTicketUiState.SuccessCustomer -> {
-                    ticket.customer = it.customer
-                    binding.txvNom.text = it.customer.firstName + " " + it.customer.lastName
-                    binding.txvVille.text = it.customer.city
-                    binding.txvAdresse.text = it.customer.address
-                    customerName = it.customer.firstName + " " + it.customer.lastName
-                    position = LatLng(it.customer.coord.latitude.toDouble(), it.customer.coord.longitude.toDouble())
+                    customer = it.customer
+                    ticket.customer = customer
+                    binding.txvNom.text = customer.firstName + " " + customer.lastName
+                    binding.txvVille.text = customer.city
+                    binding.txvAdresse.text = customer.address
+                    customerName = customer.firstName + " " + customer.lastName
+                    position = LatLng(customer.coord.latitude.toDouble(), customer.coord.longitude.toDouble())
                 }
 
                 is DetailTicketUiState.SuccessGateways -> {
