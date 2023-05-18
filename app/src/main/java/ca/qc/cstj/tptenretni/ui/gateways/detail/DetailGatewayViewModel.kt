@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import ca.qc.cstj.tptenretni.core.ApiResult
 import ca.qc.cstj.tptenretni.data.repositories.GatewayRepository
 import ca.qc.cstj.tptenretni.ui.gateways.GatewaysUiState
+import ca.qc.cstj.tptenretni.ui.tickets.detail.DetailTicketUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -19,6 +20,22 @@ class DetailGatewayViewModel(private val href: String) : ViewModel() {
     val detailGatewaysUiState = _detailGatewaysUiState.asStateFlow()
     init {
         refreshGateways()
+    }
+
+    fun actions(action:String){
+        viewModelScope.launch {
+            gatewayRepository.actions(href,action).collect { apiResult ->
+                _detailGatewaysUiState.update {
+                    when (apiResult) {
+                        is ApiResult.Error -> DetailGatewayUiState.Error(apiResult.exception)
+                        ApiResult.Loading -> DetailGatewayUiState.Loading
+                        is ApiResult.Success -> {
+                            DetailGatewayUiState.Success(apiResult.data);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun refreshGateways() {

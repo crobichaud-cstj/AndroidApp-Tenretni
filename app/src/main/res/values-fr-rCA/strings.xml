@@ -16,4 +16,8 @@
     <string name="open">OUVRIR</string>
     <string name="kernel">Révision kernel %d</string>
     <string name="title_activity_maps">Map</string>
+    <string name="reboot">Redémarer</string>
+    <string name="update">Mettre à jour</string>
+    <string name="next_reboot_at">Prochain redémarage:</string>
+    <string name="last_update_at">Dernière mise à jour:</string>
 </resources>

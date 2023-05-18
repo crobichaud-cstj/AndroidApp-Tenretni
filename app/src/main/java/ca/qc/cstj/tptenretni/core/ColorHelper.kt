@@ -31,4 +31,12 @@ object ColorHelper {
         }
         return ContextCompat.getColorStateList(context, color)!!
     }
+
+    fun networkStatusColor(context: Context, status: String): ColorStateList {
+        val color = when (Constants.ConnectionStatus.valueOf(status)) {
+            Constants.ConnectionStatus.Online -> R.color.network_status_online
+            Constants.ConnectionStatus.Offline -> R.color.network_status_offline
+        }
+        return ContextCompat.getColorStateList(context, color)!!
+    }
 }

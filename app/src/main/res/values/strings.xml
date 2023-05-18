@@ -26,4 +26,8 @@
     <string name="solve">SOLVE</string>
     <string name="open">OPEN</string>
     <string name="imgElement">R.drawable.element_%s.png</string>
+    <string name="reboot">Reboot</string>
+    <string name="update">Update</string>
+    <string name="next_reboot_at">Next reboot at:</string>
+    <string name="last_update_at">Last update at:</string>
 </resources>

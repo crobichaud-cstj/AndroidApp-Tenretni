@@ -16,9 +16,15 @@ object Constants {
         const val SOLVE = "solve"
     }
 
+    object  GatewayAction{
+        const val UPDATE = "update"
+        const val REBOOT = "reboot"
+    }
+
     object Refresh_Delay {
         const val TICKET_DETAIL_REFRESH=1000L * 30
         const val GATEWAY_REFRESH = 1000L * 60
+        const val NETWORK_REFRESH = 1000L * 180
         const val LOADING_TIME = 1000L * 1
     }
 

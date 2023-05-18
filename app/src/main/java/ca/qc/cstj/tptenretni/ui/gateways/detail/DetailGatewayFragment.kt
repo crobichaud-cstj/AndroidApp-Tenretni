@@ -94,6 +94,8 @@ class DetailGatewayFragment: Fragment(R.layout.fragment_detail_gateway) {
                         binding.txvUpload?.visibility = View.GONE
                         binding.txvSignal?.visibility = View.GONE
                         binding.txvOffline?.visibility = View.VISIBLE
+                        binding.btnUpdate?.visibility = View.GONE
+                        binding.btnReboot?.visibility = View.GONE
 
                     }
 
@@ -117,6 +119,13 @@ class DetailGatewayFragment: Fragment(R.layout.fragment_detail_gateway) {
                 }
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+        binding.btnUpdate.setOnClickListener{
+            viewModel.actions(Constants.GatewayAction.UPDATE)
+        }
+        binding.btnReboot.setOnClickListener{
+            viewModel.actions(Constants.GatewayAction.REBOOT)
+        }
 
     }
 

@@ -162,7 +162,5 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
     }
 
     private fun onGatewayClick(gateway: Gateway){
-        val action = GatewaysFragmentDirections.actionNavigationGatewaysToDetailGatewayFragment(gateway.href)
-        findNavController().navigate(action)
     }
 }
