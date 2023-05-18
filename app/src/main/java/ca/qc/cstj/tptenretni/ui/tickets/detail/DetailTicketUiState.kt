@@ -9,5 +9,6 @@ sealed class DetailTicketUiState {
     class SuccessTicket(val ticket: Ticket) : DetailTicketUiState()
     class SuccessCustomer(val customer: Customer) : DetailTicketUiState()
     class SuccessGateway(val gateway: Gateway) : DetailTicketUiState()
+    class SuccessGateways(val Gateways:List<Gateway>) : DetailTicketUiState()
     object Loading: DetailTicketUiState()
 }
