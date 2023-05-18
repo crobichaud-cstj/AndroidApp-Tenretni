@@ -9,6 +9,7 @@ object Constants {
         const val CUSTOMERS = "$BASE_API/customers"
         const val GATEWAYS = "$BASE_API/gateways"
         const val NETWORK = "$BASE_API/network"
+        const val COUNTRY_IMAGE_API = "https://flagcdn.com/w80/%s.png"
     }
 
     object NameStatus {
@@ -25,7 +26,7 @@ object Constants {
         const val TICKET_DETAIL_REFRESH=1000L * 30
         const val GATEWAY_REFRESH = 1000L * 60
         const val NETWORK_REFRESH = 1000L * 180
-        const val LOADING_TIME = 1000L * 1
+        const val LOADING_TIME = 1000L * 10
     }
 
 

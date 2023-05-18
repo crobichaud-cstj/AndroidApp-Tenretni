@@ -29,6 +29,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import ca.qc.cstj.tptenretni.ui.adapters.GatewayRecyclerViewAdapter
 import ca.qc.cstj.tptenretni.ui.gateways.GatewaysFragmentDirections
+import com.bumptech.glide.Glide
 
 class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
     private val args: TicketsFragmentArgs by navArgs()
@@ -99,6 +100,10 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
                     binding.txvAdresse.text = customer.address
                     customerName = customer.firstName + " " + customer.lastName
                     position = LatLng(customer.coord.latitude.toDouble(), customer.coord.longitude.toDouble())
+
+                    Glide.with(requireContext())
+                        .load(Constants.BaseURL.COUNTRY_IMAGE_API.format(customer.country.lowercase()))
+                        .into(binding.imageView2)
                 }
 
                 is DetailTicketUiState.SuccessGateways -> {
@@ -145,8 +150,8 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
 
     private fun statusSolve(){
         binding.btnOpen.visibility = View.VISIBLE
-        binding.btnInstall.visibility = View.GONE
-        binding.btnSolve.visibility = View.GONE
+        binding.btnInstall.visibility = View.INVISIBLE
+        binding.btnSolve.visibility = View.INVISIBLE
     }
 
     private fun handleQuickieResult(qrResult: QRResult) {
