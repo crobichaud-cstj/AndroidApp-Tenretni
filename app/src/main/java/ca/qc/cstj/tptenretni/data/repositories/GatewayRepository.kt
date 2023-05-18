@@ -42,4 +42,15 @@ class GatewayRepository {
             }
         }.flowOn(Dispatchers.IO)
     }
+
+    fun actions(href: String, action: String) : Flow<ApiResult<Gateway>> {
+        return flow<ApiResult<Gateway>> {
+            emit(ApiResult.Loading)
+            try {
+                emit(ApiResult.Success(gatewayRepository.update(href,action)))
+            } catch (ex: Exception) {
+                emit(ApiResult.Error(ex))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 }
