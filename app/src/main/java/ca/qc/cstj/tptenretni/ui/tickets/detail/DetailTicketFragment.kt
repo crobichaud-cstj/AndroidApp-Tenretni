@@ -28,6 +28,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import ca.qc.cstj.tptenretni.ui.adapters.GatewayRecyclerViewAdapter
+import ca.qc.cstj.tptenretni.ui.gateways.GatewaysFragmentDirections
 
 class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
     private val args: TicketsFragmentArgs by navArgs()
@@ -57,7 +58,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
             scanQRCode.launch(null);
         }
 
-        gatewayRecyclerViewAdapter = GatewayRecyclerViewAdapter()
+        gatewayRecyclerViewAdapter = GatewayRecyclerViewAdapter(listOf(),::onGatewayClick)
 
         binding.rcvGateways.adapter = gatewayRecyclerViewAdapter
 
@@ -158,5 +159,10 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket) {
             QRResult.QRMissingPermission -> Unit
             is QRResult.QRError -> Unit
         }
+    }
+
+    private fun onGatewayClick(gateway: Gateway){
+        val action = GatewaysFragmentDirections.actionNavigationGatewaysToDetailGatewayFragment(gateway.href)
+        findNavController().navigate(action)
     }
 }
