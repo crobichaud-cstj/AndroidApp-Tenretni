@@ -25,10 +25,15 @@ You have two button one to scan a QRCode to say that the installation is done, t
 
 You can access the location with that button. <img src="https://github.com/crobichaud-cstj/TpSyntheseAndroid/assets/89365878/9084234c-2bd4-4f00-856d-2b83e3323a0c" width="50" height="50"/>
 
-Yon can access to all the gatways.
+Yon can access to all the gatways when you click on one gatway you can reboot it and update it.
 
 <img src="https://github.com/crobichaud-cstj/TpSyntheseAndroid/assets/89365878/8e2a7bda-e26a-49a3-9310-e16637e8a427" width="200" height="400"/> 
 <img src="https://github.com/crobichaud-cstj/TpSyntheseAndroid/assets/89365878/35dda44b-dc92-4b63-a838-7ad9e511af7d" width="200" height="400"/> 
+
+Finaly there is a place to see all the networks with the time where it is going to change with the API.
+
+<img src="https://github.com/crobichaud-cstj/TpSyntheseAndroid/assets/89365878/4f80a8da-5b10-431b-8f0a-e777d5b78fde" width="200" height="400"/> 
+
 
 
 
